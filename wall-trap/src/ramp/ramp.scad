@@ -13,17 +13,21 @@ module ramp_body() {
     ]);
 }
 
+module wall_profile() {
+    polygon([
+        [0,0],
+        [0, ramp_h],
+        [-wall_l, min_thick],
+        [-wall_l, 0],
+    ]);
+}
+
 
 module wall_body() {
     translate([0,ramp_w,0])
     rotate([90,0,0])
     linear_extrude(ramp_w)
-    polygon([
-            [0,0],
-            [0, ramp_h],
-            [-wall_h, min_thick],
-            [-wall_h, 0],
-        ]);
+    wall_profile();
 }
 
 
@@ -135,7 +139,7 @@ module hinge_chunk(side="A", l, r, i, n) {
     }
 }
 
-module hinge_chunk_void(side="A", l, r, i, n) {
+module hinge_chunk_void(side="A", l, r, i, n, cut_angle) {
     assert(side=="A" || side=="B");
     assert(_is_odd(n));
     
@@ -143,7 +147,13 @@ module hinge_chunk_void(side="A", l, r, i, n) {
     
     if (side=="A") {
         if (_is_even(i)) {
-            cylinder(r=r+gap, h=l/n+gap, center=true);
+            hull() {
+                cylinder(r=r+gap, h=l/n+gap, center=true);
+                
+                rotate([0,0,cut_angle])
+                translate([r,0,0])
+                cylinder(r=r+gap, h=l/n+gap, center=true);
+            }
             
             translate([0,0,l/n/2])
             hinge_chunk_cone(type="void", dir="up", r=r);
@@ -155,8 +165,13 @@ module hinge_chunk_void(side="A", l, r, i, n) {
     
     if (side=="B") {
         if (_is_odd(i)) {
-            cylinder(r=r+gap, h=l/n+gap, center=true);
-    
+            hull() {
+                cylinder(r = r + gap, h = l / n + gap, center = true);
+                
+                rotate([0, 0, cut_angle])
+                translate([r, 0, 0])
+                cylinder(r = r + gap, h = l / n + gap, center = true);
+            }
         }
     }
 }
@@ -175,14 +190,82 @@ module hinge(side="A", l, r, n) {
     }
 }
 
-module hinge_void(side="A", l, r, n) {
+module hinge_void(side="A", l, r, n, cut_angle) {
     assert(side=="A" || side=="B");
     assert(_is_odd(n));
     
     for(i=[0:n-1]) {
         translate([0,0,i*l/n])
         translate([0,0,-l/2+l/n/2])
-        hinge_chunk_void(side=side, l=l, r=r, i=i, n=n);
+        hinge_chunk_void(side=side, l=l, r=r, i=i, n=n, cut_angle=cut_angle);
+    }
+}
+
+module wall_wheel() {
+    
+    module sector_shape() {
+        rotate(90)
+        rotate_extrude(angle=90, convexity=10)
+        rotate(-90)
+        translate([-wall_wheel_thick/2-fix,0])
+        square([wall_wheel_thick+fix*2, wall_wheel_outer_r*2]);
+    }
+    
+    module wall_shape() {
+        linear_extrude(wall_wheel_side_gap+fix*2)
+        wall_profile();
+    }
+
+    module pin_guide() {
+
+        rotate([0,0,45])
+        hull() {
+            translate([0, wall_wheel_margin,0])
+            translate([0,wall_wheel_pin_r+wall_wheel_pin_play,0])
+            translate([0,wall_wheel_inner_r,0])
+            translate([0,ramp_h/2,0])
+            cylinder(d=wall_wheel_pin_d+wall_wheel_pin_play*2, h=wall_wheel_thick+fix*2, center=true);
+    
+            translate([0,-wall_wheel_margin,0])
+            translate([0,-wall_wheel_pin_r-wall_wheel_pin_play,0])
+            translate([0,wall_wheel_outer_r,0])
+            translate([0,ramp_h/2,0])
+            cylinder(d=wall_wheel_pin_d+wall_wheel_pin_play*2, h=wall_wheel_thick+fix*2, center=true);
+        }
+    }
+    
+    module wheel_body() {
+            translate([0,ramp_h/2])
+            rotate(90)
+            rotate_extrude(angle=180, convexity=10)
+            rotate(-90)
+            translate([-wall_wheel_thick/2,wall_wheel_inner_r])
+            square([wall_wheel_thick, wall_wheel_outer_r-wall_wheel_inner_r]);
+
+    }
+    
+    module wall_connection() {
+        translate([0,0,-wall_wheel_thick/2])
+        translate([0,0,-wall_wheel_side_gap-fix])
+        intersection() {
+            wheel_body();
+            wall_shape();
+        }
+    }
+    
+    translate([0,-wall_wheel_thick/2-wall_wheel_side_gap])
+    rotate([90,0,0])
+    union() {
+        difference() {
+            intersection() {
+                wheel_body();
+                sector_shape();
+            }
+
+            pin_guide();
+        }
+        
+        wall_connection();
     }
 }
 
@@ -192,14 +275,14 @@ module wall_hinge() {
     translate([0,hinge_l/2,0])
     translate([0,0,ramp_h/2])
     rotate([-90,0,0])
-    hinge(side="A", l=hinge_l, r=hinge_r, n=hinge_chunks_n);
+    hinge(side="B", l=hinge_l, r=hinge_r, n=hinge_chunks_n);
 }
 module wall_hinge_void() {
     
     translate([0,hinge_l/2,0])
     translate([0,0,ramp_h/2])
     rotate([-90,0,0])
-    hinge_void(side="A", l=hinge_l, r=hinge_r, n=hinge_chunks_n);
+    hinge_void(side="B", l=hinge_l, r=hinge_r, n=hinge_chunks_n, cut_angle=-90-wall_slope);
 }
 
 module ramp_hinge() {
@@ -207,7 +290,7 @@ module ramp_hinge() {
     translate([0,hinge_l/2,0])
     translate([0,0,ramp_h/2])
     rotate([-90,0,0])
-    hinge(side="B", l=hinge_l, r=hinge_r, n=hinge_chunks_n);
+    hinge(side="A", l=hinge_l, r=hinge_r, n=hinge_chunks_n);
 }
 
 module ramp_hinge_void() {
@@ -215,14 +298,14 @@ module ramp_hinge_void() {
     translate([0,hinge_l/2,0])
     translate([0,0,ramp_h/2])
     rotate([-90,0,0])
-    hinge_void(side="B", l=hinge_l, r=hinge_r, n=hinge_chunks_n);
+    hinge_void(side="A", l=hinge_l, r=hinge_r, n=hinge_chunks_n, cut_angle=-90+wall_slope);
 }
 
 module sim_hinge_cut() {
     difference() {
         children();
-        translate([-a_lot/2,-wall_h, -a_lot/2])
-        cube([a_lot,wall_h,a_lot]);
+        translate([-a_lot/2,-wall_l, -a_lot/2])
+        cube([a_lot,wall_l,a_lot]);
     }
 }
 
