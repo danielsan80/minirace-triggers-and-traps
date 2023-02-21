@@ -1,5 +1,6 @@
 include <config/parameters.scad>
 use <src/ramp/ramp.scad>
+use <vendor/car/src/car.scad>
 
 
 module sim_cut() {
@@ -27,3 +28,9 @@ union() {
     wall();
     wall_wheel();
 }
+
+translate([35,0,0])
+translate([0,ramp_w/2,0])
+translate([0,0,ramp_h])
+rotate([0,0,-90])
+car();
