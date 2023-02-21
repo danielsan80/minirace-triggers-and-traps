@@ -21,14 +21,14 @@ module sim_trig_wall(angle=90) {
 
 module test_hinge_cut() {
     intersection() {
-        translate([-31,-50,0])
-        cube([40,100,4.5]);
+        translate([-11,-50,0])
+        cube([20,100,4.5]);
         children();
     }
 }
 
 
-test_hinge_cut()
+//test_hinge_cut()
 union() {
     //sim_cut()
     ramp();
@@ -40,8 +40,8 @@ union() {
     }
 }
 
-//translate([35,0,0])
-//translate([0,ramp_w/2,0])
-//translate([0,0,ramp_h])
-//rotate([0,0,-90])
-//car();
+translate([35,0,0])
+translate([0,ramp_w/2,0])
+translate([0,0,ramp_h])
+rotate([0,0,-90])
+car();
