@@ -204,6 +204,7 @@ module hinge_void(side="A", l, r, n, cut_angle) {
 module wall_wheel() {
     
     module sector_shape() {
+        translate([ramp_h/2,0,0])
         rotate(90)
         rotate_extrude(angle=90, convexity=10)
         rotate(-90)
@@ -236,8 +237,7 @@ module wall_wheel() {
     
     module wheel_body() {
             translate([0,ramp_h/2])
-            rotate(90)
-            rotate_extrude(angle=180, convexity=10)
+            rotate_extrude(angle=270, convexity=10)
             rotate(-90)
             translate([-wall_wheel_thick/2,wall_wheel_inner_r])
             square([wall_wheel_thick, wall_wheel_outer_r-wall_wheel_inner_r]);
