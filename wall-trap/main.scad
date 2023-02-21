@@ -19,18 +19,29 @@ module sim_trig_wall(angle=90) {
 
 }
 
-
-//sim_cut()
-ramp();
-//sim_cut()
-//sim_trig_wall(angle=90)
-union() {
-    wall();
-    wall_wheel();
+module test_hinge_cut() {
+    intersection() {
+        translate([-31,-50,0])
+        cube([40,100,4.5]);
+        children();
+    }
 }
 
-translate([35,0,0])
-translate([0,ramp_w/2,0])
-translate([0,0,ramp_h])
-rotate([0,0,-90])
-car();
+
+test_hinge_cut()
+union() {
+    //sim_cut()
+    ramp();
+    //sim_cut()
+    //sim_trig_wall(angle=90)
+    union() {
+        wall();
+        wall_wheel();
+    }
+}
+
+//translate([35,0,0])
+//translate([0,ramp_w/2,0])
+//translate([0,0,ramp_h])
+//rotate([0,0,-90])
+//car();

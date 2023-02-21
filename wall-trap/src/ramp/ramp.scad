@@ -219,18 +219,17 @@ module wall_wheel() {
 
     module pin_guide() {
 
+        translate([0,ramp_h/2,0])
         rotate([0,0,45])
         hull() {
             translate([0, wall_wheel_margin,0])
             translate([0,wall_wheel_pin_r+wall_wheel_pin_play,0])
             translate([0,wall_wheel_inner_r,0])
-            translate([0,ramp_h/2,0])
             cylinder(d=wall_wheel_pin_d+wall_wheel_pin_play*2, h=wall_wheel_thick+fix*2, center=true);
     
             translate([0,-wall_wheel_margin,0])
             translate([0,-wall_wheel_pin_r-wall_wheel_pin_play,0])
             translate([0,wall_wheel_outer_r,0])
-            translate([0,ramp_h/2,0])
             cylinder(d=wall_wheel_pin_d+wall_wheel_pin_play*2, h=wall_wheel_thick+fix*2, center=true);
         }
     }

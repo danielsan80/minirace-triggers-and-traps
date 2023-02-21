@@ -6,7 +6,7 @@ min_thick = 0.3;
 
 ramp_l = 100;
 ramp_h = 4;
-ramp_w = 120;
+ramp_w = 40;
 ramp_up_l = 20;
 
 ramp_hypotenuse = sqrt(pow(ramp_l-ramp_up_l,2)+pow(ramp_h,2));
@@ -27,22 +27,22 @@ hinge_joint_cone_gap = 0.3;
 
 
 
-hinge_chunk_cone_margin = 0.5;
-hinge_chunk_cone_r2 = 0.5;
-hinge_chunk_gap = 0.3;
+hinge_chunk_cone_margin = 0.2;
+hinge_chunk_cone_r2 = 0.2;
+hinge_chunk_gap = 0.15;
 
 hinge_chunks_n = 5;
 hinge_r = ramp_h/2;
 hinge_l = ramp_w;
 
 
-wall_wheel_side_gap = hinge_chunk_gap;
+wall_wheel_side_gap = 0.3;
 wall_wheel_inner_gap = 4;
 wall_wheel_outer_r = 30;
-wall_wheel_inner_r = ramp_h+wall_wheel_inner_gap;
+wall_wheel_inner_r = ramp_h/2+wall_wheel_inner_gap;
 wall_wheel_thick = 3;
 wall_wheel_margin = 2.5;
 
 wall_wheel_pin_d =2.5;
 wall_wheel_pin_r = wall_wheel_pin_d/2;
-wall_wheel_pin_play = 0.3;
+wall_wheel_pin_play = 0.2;
