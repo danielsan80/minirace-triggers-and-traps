@@ -1,5 +1,6 @@
 include <config/parameters.scad>
 use <src/ramp/ramp.scad>
+use <src/engine/engine.scad>
 use <vendor/car/src/car.scad>
 
 
@@ -45,3 +46,11 @@ translate([0,ramp_w/2,0])
 translate([0,0,ramp_h])
 rotate([0,0,-90])
 car();
+
+
+translate([0,-wall_wheel_side_gap-wall_wheel_thick,0])
+translate([0,-engine_gear_h,0])
+translate([-engine_pivot_pos.x,0,0])
+translate([0,-engine_l,0])
+engine_upside_down_transform()
+engine();

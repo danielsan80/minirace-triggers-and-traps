@@ -46,3 +46,17 @@ wall_wheel_margin = 2.5;
 wall_wheel_pin_d =2.5;
 wall_wheel_pin_r = wall_wheel_pin_d/2;
 wall_wheel_pin_play = 0.2;
+
+
+engine_l = 23.5;
+engine_w = 22.5;
+engine_h = 12.3;
+//engine_dinstance = 7;
+engine_pivot_pos = [6.5, engine_h/2];
+//engine_margin = 2;
+
+engine_wing_thick = 2;
+engine_wing_l = 6;
+engine_wing_offset = 5;
+engine_gear_r = 2.5;
+engine_gear_h = 8;
