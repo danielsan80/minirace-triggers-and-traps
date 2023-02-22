@@ -1,5 +1,7 @@
 include <config/parameters.scad>
 use <src/ramp/ramp.scad>
+use <src/wall/wall.scad>
+use <src/wall_wheel/wall_wheel.scad>
 use <src/engine/engine.scad>
 use <vendor/car/src/car.scad>
 
