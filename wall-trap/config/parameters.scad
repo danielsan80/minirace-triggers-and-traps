@@ -1,6 +1,7 @@
 $fn=150;
 fix = 0.01;
 a_lot = 1000;
+a_few = 10;
 
 min_thick = 0.3;
 
@@ -48,15 +49,43 @@ wall_wheel_pin_r = wall_wheel_pin_d/2;
 wall_wheel_pin_play = 0.2;
 
 
-engine_l = 23.5;
-engine_w = 22.5;
-engine_h = 12.3;
-//engine_dinstance = 7;
-engine_pivot_pos = [6.5, engine_h/2];
-//engine_margin = 2;
+engine_l = 23.6;
+engine_w = 22.6;
+engine_h = 12.4;
+engine_gear_case_h = 4.7;
+engine_gear_case_d = engine_h;
+engine_gear_case_r = engine_gear_case_d/2;
+engine_gear_case2_d = 5;
+engine_gear_cases_w = 14.4;
+engine_pinion_h = 3.3;
+engine_pinion_d = 4.7;
 
 engine_wing_thick = 2;
-engine_wing_l = 6;
+engine_wing_l = 5.5;
 engine_wing_offset = 5;
 engine_gear_r = 2.5;
 engine_gear_h = 8;
+
+engine_arm_l = 20;
+engine_arm_d1 = 6.8;
+engine_arm_d2 = 3.7;
+engine_arm_thick = 1.4;
+engine_arm_pinion_grabber_h = 3.7;
+engine_arm_holes_step_offset = 1.5;
+engine_arm_holes_step = 2;
+engine_arm_holes_n = 6;
+engine_arm_holes_d = 1;
+
+engine_arm_screw_d = 1.8;
+engine_arm_screw_l = 8.4;
+engine_arm_screw_head_h = 1.3;
+engine_arm_screw_head_d = 5;
+
+pin_arm_base_thick = 1.5;
+pin_arm_play = 0.2;
+pin_arm_wall_thick = 1.2;
+pin_arm_wall_h = engine_arm_thick;
+pin_arm_pin_d = wall_wheel_pin_d;
+pin_arm_pin_overhange = 2;
+pin_arm_pin_h = wall_wheel_thick+wall_wheel_side_gap+pin_arm_pin_overhange;
+
