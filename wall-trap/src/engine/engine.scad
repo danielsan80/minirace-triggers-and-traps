@@ -108,3 +108,28 @@ module engine() {
         wings();
     }
 }
+
+function engine_offset_x() = -engine_gear_case_r;
+function engine_offset_y() = 0
+    -engine_l
+    -engine_gear_case_h
+    -engine_pinion_h
+    -engine_arm_thick
+    -pin_arm_play
+    -pin_arm_base_thick
+    -wall_wheel_side_gap
+    -wall_wheel_side_gap-wall_wheel_thick
+    -engine_gear_case_r
+;
+function engine_offset_z() = engine_box_base_thick;
+
+function engine_offset() = [
+    engine_offset_x(),
+    engine_offset_y(),
+    engine_offset_z()
+];
+
+module engine_on_wall_trap_transform() {
+    translate(engine_offset())
+    children();
+}
