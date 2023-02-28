@@ -7,7 +7,7 @@ module engine_arm() {
         difference() {
             cylinder(d = engine_arm_d1, h = engine_arm_pinion_grabber_h);
             translate([0, 0, engine_arm_thick])
-            cylinder(r = engine_gear_r, h = engine_arm_pinion_grabber_h);
+            cylinder(d = engine_pinion_d, h = engine_arm_pinion_grabber_h);
         }
     
     }

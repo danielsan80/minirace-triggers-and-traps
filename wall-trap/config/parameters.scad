@@ -49,37 +49,35 @@ wall_wheel_pin_r = wall_wheel_pin_d/2;
 wall_wheel_pin_play = 0.2;
 
 
-engine_l = 23.6;
-engine_w = 22.6;
-engine_h = 12.4;
-engine_gear_case_h = 4.7;
+engine_l = 23.97;
+engine_w = 22.76;
+engine_h = 12.36;
+engine_gear_case_h = 4.19;
 engine_gear_case_d = engine_h;
 engine_gear_case_r = engine_gear_case_d/2;
-engine_gear_case2_d = 5;
-engine_gear_cases_w = 14.4;
-engine_pinion_h = 3.3;
-engine_pinion_d = 4.7;
+engine_gear_case2_d = 5.43;
+engine_gear_cases_w = 14.55;
+engine_pinion_h = 2.81;
+engine_pinion_d = 4.83;
 
-engine_wing_thick = 2;
-engine_wing_l = 5.5;
-engine_wing_offset = 5;
-engine_gear_r = 2.5;
-engine_gear_h = 8;
+engine_wing_thick = 2.48;
+engine_wing_l = 4.93;
+engine_wing_offset = 4.27;
 
-engine_arm_l = 20;
-engine_arm_d1 = 6.8;
-engine_arm_d2 = 3.7;
-engine_arm_thick = 1.4;
-engine_arm_pinion_grabber_h = 3.7;
+engine_arm_l = 19.51;
+engine_arm_d1 = 6.89;
+engine_arm_d2 = 4.04;
+engine_arm_thick = 1.45;
+engine_arm_pinion_grabber_h = 3.88;
 engine_arm_holes_step_offset = 1.5;
 engine_arm_holes_step = 2;
 engine_arm_holes_n = 6;
 engine_arm_holes_d = 1;
 
-engine_arm_screw_d = 1.8;
-engine_arm_screw_l = 8.4;
-engine_arm_screw_head_h = 1.3;
-engine_arm_screw_head_d = 5;
+//engine_arm_screw_d = 1.8;
+//engine_arm_screw_l = 8.4;
+//engine_arm_screw_head_h = 1.3;
+//engine_arm_screw_head_d = 5;
 
 pin_arm_base_thick = 1.5;
 pin_arm_play = 0.2;
