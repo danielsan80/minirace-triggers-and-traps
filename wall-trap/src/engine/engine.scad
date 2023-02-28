@@ -67,9 +67,9 @@ module engine() {
     }
     
     module wings() {
-        translate([-engine_wing_l,engine_l-engine_wing_offset,0])
+        translate([-engine_wing_l,engine_l-engine_wing_offset-engine_wing_thick,0])
         cube([engine_wing_l, engine_wing_thick, engine_h]);
-        translate([engine_w,engine_l-engine_wing_offset,0])
+        translate([engine_w,engine_l-engine_wing_offset-engine_wing_thick,0])
         cube([engine_wing_l, engine_wing_thick, engine_h]);
     }
     
@@ -124,7 +124,7 @@ function engine_offset_y() = 0
     -wall_wheel_side_gap-wall_wheel_thick
     -engine_gear_case1_r
 ;
-function engine_offset_z() = engine_box_base_thick;
+function engine_offset_z() = engine_box_bottom_base_thick;
 
 function engine_offset() = [
     engine_offset_x(),
