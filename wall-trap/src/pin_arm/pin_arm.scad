@@ -27,6 +27,24 @@ module pin_arm() {
         };
     }
     
+    module cover() {
+        d_ext = pin_arm_play*2+pin_arm_wall_thick*2;
+        h = pin_arm_base_thick;
+        translate([0,0,pin_arm_base_thick+pin_arm_wall_h])
+        difference() {
+            hull(){
+                cylinder(d=engine_arm_d1+d_ext, h=h);
+            
+                translate([0,engine_arm_l-engine_arm_d1/2-engine_arm_d2/2,0])
+                cylinder(d=engine_arm_d2+d_ext, h=h);
+            };
+            
+            translate([0,0,-fix])
+            cylinder(d=engine_arm_d1*pin_arm_cover_ratio, h=h+fix*2);
+            
+        }
+    }
+    
     module pin() {
         translate([0,engine_arm_l-engine_arm_d1/2-engine_arm_d2/2,0])
         translate([0,0,fix])
@@ -44,6 +62,7 @@ module pin_arm() {
             body();
             hollow();
         }
+        cover();
         pin();
     }
 }

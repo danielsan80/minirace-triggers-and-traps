@@ -54,26 +54,26 @@ module test_hinge_cut() {
 
 engine_on_wall_trap_transform()
 union() {
-    engine();
+//    engine();
 
 
     engine_arm_on_engine_pinion_transform(angle=-56)
     union() {
-        engine_arm();
+//        engine_arm();
 //        translate([0,5,0])
         pin_arm();
     }
 
 }
 
-engine_box_on_wall_trap_transform()
-engine_box_on_engine_transform()
-engine_box_bottom();
-
-engine_box_on_wall_trap_transform()
-engine_box_on_engine_transform()
-engine_box_top_on_engine_box_bottom_transform()
-engine_box_top();
+//engine_box_on_wall_trap_transform()
+//engine_box_on_engine_transform()
+//engine_box_bottom();
+//
+//engine_box_on_wall_trap_transform()
+//engine_box_on_engine_transform()
+//engine_box_top_on_engine_box_bottom_transform()
+//engine_box_top();
 
 
 
