@@ -97,11 +97,12 @@ engine_box_top_base_thick = 2;
 engine_box_top_margin = 2;
 engine_box_wall_thick = 1.5;
 engine_box_play = 0.2;
-engine_box_back_play = 2;
+engine_box_back_gap = 2;
 
 engine_box_w = engine_w+engine_wing_l*2+engine_box_play*2+engine_box_wall_thick*2;
-engine_box_l = engine_l+engine_box_play*2+engine_box_wall_thick*2+engine_box_back_play;
-engine_box_h = engine_h+engine_box_bottom_base_thick+engine_box_top_margin;
+engine_box_l = engine_l+engine_box_play*2+engine_box_wall_thick*2+engine_box_back_gap;
+engine_box_bottom_h = engine_h+engine_box_bottom_base_thick+engine_box_top_margin;
+engine_box_h = engine_box_bottom_h+engine_box_top_base_thick;
 engine_box_cable_slit_w = 2;
 engine_box_cable_slit_z_offset = 3;
 
