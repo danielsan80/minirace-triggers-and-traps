@@ -32,30 +32,30 @@ module test_hinge_cut() {
     }
 }
 
-
-////test_hinge_cut()
-union() {
-    //sim_cut()
-    ramp();
-    //sim_cut()
-    sim_trig_wall(angle=90)
-    union() {
-        wall();
-        wall_wheel();
-    }
-}
-
-translate([35,0,0])
-translate([0,ramp_w/2,0])
-translate([0,0,ramp_h])
-rotate([0,0,-90])
-car();
+//
+//////test_hinge_cut()
+//union() {
+//    //sim_cut()
+//    ramp();
+//    //sim_cut()
+//    sim_trig_wall(angle=90)
+//    union() {
+//        wall();
+//        wall_wheel();
+//    }
+//}
+//
+//translate([35,0,0])
+//translate([0,ramp_w/2,0])
+//translate([0,0,ramp_h])
+//rotate([0,0,-90])
+//car();
 
 
 engine_on_wall_trap_transform()
 union() {
     engine();
-    
+
 
     engine_arm_on_engine_pinion_transform(angle=-56)
     union() {
@@ -63,7 +63,7 @@ union() {
 //        translate([0,5,0])
         pin_arm();
     }
-    
+
 }
 
 engine_box_on_wall_trap_transform()

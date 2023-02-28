@@ -52,11 +52,12 @@ wall_wheel_pin_play = 0.2;
 engine_l = 23.97;
 engine_w = 22.76;
 engine_h = 12.36;
-engine_gear_case_h = 4.19;
-engine_gear_case_d = engine_h;
-engine_gear_case_r = engine_gear_case_d/2;
+engine_gear_cases_l = 14.55;
+engine_gear_cases_w = 11.54;
+engine_gear_cases_h = 4.19;
+engine_gear_case1_d = engine_gear_cases_w;
+engine_gear_case1_r = engine_gear_case1_d/2;
 engine_gear_case2_d = 5.43;
-engine_gear_cases_w = 14.55;
 engine_pinion_h = 2.81;
 engine_pinion_d = 4.83;
 
@@ -91,9 +92,11 @@ engine_box_connection_w_gap = 1;
 engine_box_connection_w = wall_wheel_inner_r-engine_box_connection_w_gap;
 engine_box_connection_l = 10;
 
-engine_box_base_thick = ramp_h;
+engine_box_base_thick = 2; //ramp_h;
 engine_box_top_thick = 2;
 engine_box_wall_thick = 1.5;
+engine_box_holder_h = 3;
+engine_box_holder_w = 4;
 engine_box_play = 0.2;
 engine_box_back_play = 2;
 

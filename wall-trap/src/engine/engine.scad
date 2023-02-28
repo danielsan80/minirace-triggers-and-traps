@@ -50,9 +50,9 @@ module engine_arm() {
 
 
 module engine_arm_on_engine_pinion_transform(angle = 0) {
-    translate([engine_gear_case_r,0,engine_gear_case_r])
+    translate([engine_gear_case1_r,0,engine_gear_case1_r])
     translate([0,engine_pinion_h,0])
-    translate([0,engine_gear_case_h,0])
+    translate([0,engine_gear_cases_h,0])
     translate([0,engine_l,0])
     rotate([0,angle,0])
     children();
@@ -73,53 +73,56 @@ module engine() {
         cube([engine_wing_l, engine_wing_thick, engine_h]);
     }
     
-    module gear_case() {
-        translate([engine_gear_case_r,0,engine_gear_case_r])
+    module gear_case1() {
+        translate([engine_gear_case1_r,0,engine_h/2])
         translate([0,engine_l,0])
         rotate([-90,0,0])
-        cylinder(d=engine_gear_case_d, h=engine_gear_case_h);
+        cylinder(d=engine_gear_case1_d, h=engine_gear_cases_h);
     }
     
     module gear_case2() {
-        translate([engine_gear_cases_w-engine_gear_case2_d/2,0,engine_h/2])
+        translate([engine_gear_cases_l-engine_gear_case2_d/2,0,engine_h/2])
         translate([0,engine_l,0])
         rotate([-90,0,0])
-        cylinder(d=engine_gear_case2_d, h=engine_gear_case_h);
+        cylinder(d=engine_gear_case2_d, h=engine_gear_cases_h);
     }
     
     module pinion() {
-        translate([engine_gear_case_r,0,engine_gear_case_r])
-        translate([0,engine_gear_case_h,0])
+        translate([engine_gear_case1_r,0,engine_gear_case1_r])
+        translate([0,engine_gear_cases_h,0])
         translate([0,engine_pinion_h,0])
         translate([0,engine_l,0])
         rotate([90,0,0])
         cylinder(d=engine_pinion_d, h=engine_pinion_h);
     }
     
-    color("blue")
     union() {
+        color("blue")
         body();
-        
-        gear_case();
+        color("blue")
+        gear_case1();
+        color("blue")
         gear_case2();
         
+        color("white")
         pinion();
         
+        color("blue")
         wings();
     }
 }
 
-function engine_offset_x() = -engine_gear_case_r;
+function engine_offset_x() = -engine_gear_case1_r;
 function engine_offset_y() = 0
     -engine_l
-    -engine_gear_case_h
+    -engine_gear_cases_h
     -engine_pinion_h
     -engine_arm_thick
     -pin_arm_play
     -pin_arm_base_thick
     -wall_wheel_side_gap
     -wall_wheel_side_gap-wall_wheel_thick
-    -engine_gear_case_r
+    -engine_gear_case1_r
 ;
 function engine_offset_z() = engine_box_base_thick;
 
