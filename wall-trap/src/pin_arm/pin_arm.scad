@@ -67,4 +67,17 @@ module pin_arm() {
     }
 }
 
+module print_pin_arm_transform() {
+    b = engine_arm_l-engine_arm_d1/2-engine_arm_d2/2;
+    h = engine_arm_d1/2-engine_arm_d2/2;
+    hp = sqrt(pow(b,2)+pow(h,2));
+    slope = asin(h/hp);
+    
+    translate([0,0,pin_arm_wall_thick])
+    translate([0,0,pin_arm_play])
+    translate([0,0,engine_arm_d1/2])
+    rotate([0,90+slope,0])
+    children();
+}
+
 
