@@ -33,54 +33,53 @@ module test_hinge_cut() {
 }
 
 
-//////test_hinge_cut()
-//union() {
-//    //sim_cut()
-//    ramp();
-//    //sim_cut()
-//    sim_trig_wall(angle=0)
-//    union() {
-//        wall();
-//        wall_wheel();
-//    }
-//}
-//
-//engine_box_on_wall_trap_transform()
-//engine_box_on_engine_transform()
-//engine_box_bottom();
-//
-//engine_box_connection();
+////test_hinge_cut()
+union() {
+    //sim_cut()
+    ramp();
+    //sim_cut()
+    sim_trig_wall(angle=0)
+    union() {
+        wall();
+        wall_wheel();
+    }
+}
+
+engine_box_on_wall_trap_transform()
+engine_box_on_engine_transform()
+engine_box_bottom();
+
+engine_box_connection();
 
 
-//engine_box_on_wall_trap_transform()
-//engine_box_on_engine_transform()
-//engine_box_top_on_engine_box_bottom_transform()
-//engine_box_top();
+engine_box_on_wall_trap_transform()
+engine_box_on_engine_transform()
+engine_box_top_on_engine_box_bottom_transform()
+engine_box_top();
 
 
 
-//translate([35,0,0])
-//translate([0,ramp_w/2,0])
-//translate([0,0,ramp_h])
-//rotate([0,0,-90])
-//car();
-//
-//
-//engine_on_wall_trap_transform()
-//union() {
-//    engine();
-//
-//    engine_arm_on_engine_pinion_transform(angle=-56)
-//    union() {
-//        engine_arm();
-////        translate([0,5,0])
-        print_pin_arm_transform()
+translate([35,0,0])
+translate([0,ramp_w/2,0])
+translate([0,0,ramp_h])
+rotate([0,0,-90])
+car();
+
+
+engine_on_wall_trap_transform()
+union() {
+    engine();
+
+    engine_arm_on_engine_pinion_transform(angle=-68.5)
+    union() {
+        engine_arm();
+//        translate([0,5,0])
+//        print_pin_arm_transform()
         pin_arm();
-//    }
-//
-//}
-//
-//
+    }
+}
+
+
 
 
 
