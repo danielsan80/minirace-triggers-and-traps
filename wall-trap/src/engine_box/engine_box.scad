@@ -80,9 +80,37 @@ module engine_box_bottom_walls() {
     engine_box_bottom_wall_front();
 }
 
+
+function engine_box_connection_l() = 0
+    -engine_offset_y()
+    -engine_l
+    -wall_wheel_side_gap
+    -engine_box_play
+    -engine_box_wall_thick
+;
+
 module engine_box_connection() {
-    translate([0,-engine_box_connection_l,0])
-    cube([engine_box_connection_w, engine_box_connection_l, engine_box_bottom_base_thick]);
+    translate([0,-engine_box_connection_l(),0])
+    intersection() {
+        
+        union() {
+            translate([0,-wall_wheel_side_gap,0])
+            translate([-engine_box_connection_w/2,0,0])
+            cube([engine_box_connection_w, engine_box_connection_l(), engine_box_connection_h]);
+            
+            cube([engine_box_connection_w/2, engine_box_connection_l(), engine_box_connection_h]);
+
+            translate([0,0,ramp_h/2])
+            rotate([-90,0,0])
+            cylinder(d=ramp_h, h=engine_box_connection_l());
+            
+        }
+        
+        translate([0,0,ramp_h/2])
+        rotate([-90,0,0])
+        translate([0,0,-a_lot/2])
+        cylinder(r=wall_wheel_inner_r-engine_box_connection_gap, h=a_lot);
+    }
 }
 
 module engine_box_bottom() {
@@ -109,7 +137,6 @@ module engine_box_top_base() {
 }
 
 module engine_box_top_filler_right() {
-    color("red")
     translate([0,engine_box_back_gap,0])
     translate([engine_box_play,engine_box_play,0])
     translate([engine_box_wall_thick,engine_box_wall_thick,0])
@@ -123,7 +150,6 @@ module engine_box_top_filler_right() {
 }
 
 module engine_box_top_filler_left() {
-    color("red")
     translate([0,engine_box_back_gap,0])
     translate([-engine_box_play,engine_box_play,0])
     translate([-engine_box_wall_thick,engine_box_wall_thick,0])

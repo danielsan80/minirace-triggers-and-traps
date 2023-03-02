@@ -89,9 +89,6 @@ pin_arm_pin_d = wall_wheel_pin_d;
 pin_arm_pin_overhange = 2;
 pin_arm_pin_h = wall_wheel_thick+wall_wheel_side_gap+pin_arm_pin_overhange;
 
-engine_box_connection_w_gap = 1;
-engine_box_connection_w = wall_wheel_inner_r-engine_box_connection_w_gap;
-engine_box_connection_l = 10;
 
 engine_box_bottom_base_thick = 4; //ramp_h;
 engine_box_top_base_thick = 2;
@@ -106,4 +103,8 @@ engine_box_bottom_h = engine_h+engine_box_bottom_base_thick+engine_box_top_margi
 engine_box_h = engine_box_bottom_h+engine_box_top_base_thick;
 engine_box_cable_slit_w = 2;
 engine_box_cable_slit_z_offset = 3;
+
+engine_box_connection_gap = 1;
+engine_box_connection_w = wall_wheel_inner_r*2;
+engine_box_connection_h = engine_box_bottom_base_thick;
 

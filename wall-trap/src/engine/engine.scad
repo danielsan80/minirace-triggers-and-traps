@@ -122,7 +122,6 @@ function engine_offset_y() = 0
     -pin_arm_base_thick
     -wall_wheel_side_gap
     -wall_wheel_side_gap-wall_wheel_thick
-    -engine_gear_case1_r
 ;
 function engine_offset_z() = engine_box_bottom_base_thick;
 
