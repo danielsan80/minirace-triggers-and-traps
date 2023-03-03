@@ -33,6 +33,32 @@ module _wall_wheel_pin_guide() {
 }
 
 
+module _wall_wheel_tooth() {
+    rotate([0,0,-90])
+    translate([0,wall_wheel_outer_r,0])
+    translate([-tooth_b1/2,0,0])
+    translate([0,0,-wall_wheel_thick/2])
+    translate([0,-tooth_h_offset,0])
+    linear_extrude(height=wall_wheel_thick)
+    polygon([
+        [0,0],
+        [tooth_b1,0],
+        [tooth_b1-tooth_b_offset,tooth_h],
+        [tooth_b_offset,tooth_h]
+    ]);
+}
+
+module _wall_wheel_teeth() {
+    angle = 90/n_teeth;
+    translate([0,ramp_h/2,0])
+    for(i=[0:n_teeth+1]) {
+        rotate([0, 0, angle*i])
+        rotate([0, 0, 90])
+        _wall_wheel_tooth();
+    }
+}
+
+
 module _wall_wheel_body() {
     translate([0,ramp_h/2])
     rotate_extrude(angle=270, convexity=10)
@@ -40,6 +66,7 @@ module _wall_wheel_body() {
     translate([-wall_wheel_thick/2,wall_wheel_inner_r])
     square([wall_wheel_thick, wall_wheel_outer_r-wall_wheel_inner_r]);
     
+    _wall_wheel_teeth();
 }
 
 module _wall_wheel_connection() {
@@ -65,7 +92,7 @@ module wall_wheel() {
 
             _wall_wheel_pin_guide();
         }
-        
+
         _wall_wheel_connection();
     }
 }

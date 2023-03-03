@@ -39,14 +39,27 @@ hinge_l = ramp_w;
 
 wall_wheel_side_gap = 0.3;
 wall_wheel_inner_gap = 4;
-wall_wheel_outer_r = 30;
+wall_wheel_outer_r = 28.5;
 wall_wheel_inner_r = ramp_h/2+wall_wheel_inner_gap;
 wall_wheel_thick = 3;
-wall_wheel_margin = 2.5;
+wall_wheel_margin = 3.3;
 
 wall_wheel_pin_d =2.5;
 wall_wheel_pin_r = wall_wheel_pin_d/2;
 wall_wheel_pin_play = 0.2;
+
+
+
+tooth_h_offset = 0.1;
+wall_wheel_teeth_c = (wall_wheel_outer_r-tooth_h_offset)*2*PI;
+tooth_b_ratio = 0.6;
+n_teeth = 7;
+tooth_h = 3.2;
+tooth_step = wall_wheel_teeth_c/4/n_teeth;
+tooth_b1 = tooth_step/(1+tooth_b_ratio);
+tooth_b2 = tooth_b1*tooth_b_ratio;
+tooth_b_offset = (tooth_b1-tooth_b2)/2;
+
 
 
 engine_l = 23.97;
@@ -90,7 +103,6 @@ pin_arm_pin_overhange = 2;
 pin_arm_pin_h = wall_wheel_thick+wall_wheel_side_gap+pin_arm_pin_overhange;
 pin_arm_angle = 68.5;
 
-
 engine_box_bottom_base_thick = 4; //ramp_h;
 engine_box_top_base_thick = 2;
 engine_box_top_margin = 2;
@@ -109,4 +121,4 @@ engine_box_connection_gap = 1;
 engine_box_connection_w = wall_wheel_inner_r*2;
 engine_box_connection_h = engine_box_bottom_base_thick;
 
-t0 = 0;
+t0 = 0.5;
