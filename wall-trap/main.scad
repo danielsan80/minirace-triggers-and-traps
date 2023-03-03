@@ -26,9 +26,9 @@ module sim_trig_wall(angle=90) {
 
 module test_hinge_cut() {
     intersection() {
-        translate([-11,-50,0])
-        cube([20,100,4.5]);
         children();
+        translate([-35,-50,0])
+        cube([50,100,35]);
     }
 }
 
