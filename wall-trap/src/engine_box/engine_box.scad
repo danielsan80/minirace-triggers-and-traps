@@ -52,7 +52,6 @@ module engine_box_bottom_wall_front() {
         translate([0,engine_box_l,0])
         translate([0,0,engine_box_bottom_base_thick])
         rotate([-90,0,0])
-        color("red")
         union() {
             translate([engine_gear_case1_r,0,0])
             cylinder(d=engine_gear_case1_d+engine_box_play*2, h=engine_box_wall_thick+fix*2);
@@ -130,10 +129,17 @@ module engine_box_top_base() {
     translate([engine_box_wall_thick,engine_box_wall_thick,0])
     translate([0,0,engine_box_top_base_thick])
     cube([
-        engine_box_w -engine_box_wall_thick*2 - engine_box_play*2,
+        engine_box_w - engine_box_wall_thick*2 - engine_box_play*2,
         engine_box_l - engine_box_wall_thick*2 - engine_box_play*2,
-        engine_box_top_base_thick
+        engine_box_top_margin
     ]);
+    
+    translate([-engine_wing_l,,0])
+    translate([-engine_box_wall_thick,0,0])
+    translate([-engine_box_cable_slit_w,0,0])
+    translate([engine_box_w,0,0])
+    translate([0,0,engine_box_top_base_thick])
+    cube([engine_box_cable_slit_w-engine_box_play*2,engine_box_wall_thick+engine_box_back_gap,engine_box_top_margin]);
 }
 
 module engine_box_top_filler_right() {
@@ -145,7 +151,7 @@ module engine_box_top_filler_right() {
     cube([
         engine_wing_l-engine_box_play,
         engine_box_l-engine_box_wall_thick*2-engine_box_play*2-engine_box_back_gap-engine_wing_offset-engine_wing_thick-engine_box_play,
-        engine_h-engine_box_top_margin*2
+        engine_h-engine_box_top_margin-engine_box_bottom_margin
     ]);
 }
 
@@ -160,7 +166,7 @@ module engine_box_top_filler_left() {
     cube([
         engine_wing_l-engine_box_play,
         engine_box_l-engine_box_wall_thick*2-engine_box_play*2-engine_box_back_gap-engine_wing_offset-engine_wing_thick-engine_box_play,
-        engine_h-engine_box_top_margin*2
+        engine_h-engine_box_top_margin-engine_box_bottom_margin
     ]);
 }
 

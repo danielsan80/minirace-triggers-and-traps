@@ -106,6 +106,7 @@ pin_arm_angle = 68.5;
 engine_box_bottom_base_thick = 4; //ramp_h;
 engine_box_top_base_thick = 2;
 engine_box_top_margin = 2;
+engine_box_bottom_margin = 2;
 engine_box_wall_thick = 1.5;
 engine_box_play = 0.2;
 engine_box_back_gap = 2;
