@@ -88,6 +88,7 @@ pin_arm_cover_ratio = 1.8;
 pin_arm_pin_d = wall_wheel_pin_d;
 pin_arm_pin_overhange = 2;
 pin_arm_pin_h = wall_wheel_thick+wall_wheel_side_gap+pin_arm_pin_overhange;
+pin_arm_angle = 68.5;
 
 
 engine_box_bottom_base_thick = 4; //ramp_h;
@@ -108,3 +109,4 @@ engine_box_connection_gap = 1;
 engine_box_connection_w = wall_wheel_inner_r*2;
 engine_box_connection_h = engine_box_bottom_base_thick;
 
+t0 = 0;

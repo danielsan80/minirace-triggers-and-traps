@@ -38,7 +38,7 @@ union() {
     //sim_cut()
     ramp();
     //sim_cut()
-    sim_trig_wall(angle=0)
+    sim_trig_wall(angle=(sin($t*360)/2+t0)*90)
     union() {
         wall();
         wall_wheel();
@@ -70,7 +70,7 @@ engine_on_wall_trap_transform()
 union() {
     engine();
 
-    engine_arm_on_engine_pinion_transform(angle=-68.5)
+    engine_arm_on_engine_pinion_transform(angle=-pin_arm_angle+(sin($t*360)/2+t0)*(pin_arm_angle*2))
     union() {
         engine_arm();
 //        translate([0,5,0])
