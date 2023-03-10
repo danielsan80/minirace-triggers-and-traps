@@ -7,7 +7,7 @@ min_thick = 0.3;
 
 ramp_l = 100;
 ramp_h = 4;
-ramp_w = 120;
+ramp_w = 130;
 ramp_up_l = 20;
 
 ramp_hypotenuse = sqrt(pow(ramp_l-ramp_up_l,2)+pow(ramp_h,2));
@@ -122,4 +122,4 @@ engine_box_connection_gap = 1;
 engine_box_connection_w = wall_wheel_inner_r*2;
 engine_box_connection_h = engine_box_bottom_base_thick;
 
-t0 = 0.5;
+t0 = 0.0;
