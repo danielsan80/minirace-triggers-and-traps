@@ -1,0 +1,9 @@
+/vendor
+
+/frame*.png
+
+/build/**
+!/build/**/
+!/build/scad/**
+
+!.gitkeep
