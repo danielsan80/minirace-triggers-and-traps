@@ -1,0 +1,4 @@
+#!/bin/bash
+
+unlink vendor 2> /dev/null
+ln -sfr ../ vendor

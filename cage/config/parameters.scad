@@ -1,5 +1,7 @@
 $fn = 100;
 play = 0.3;
+fix = 0.01;
+
 inner_l = 47;
 //inner_w = 60;
 inner_w = 27+0.8;
@@ -13,7 +15,6 @@ outer_h = inner_h+thick*2;
 
 m_thick = 2;
 l_thick = 1;
-//fix = 0.01;
 //
 //min_thick = 0.3;
 //
