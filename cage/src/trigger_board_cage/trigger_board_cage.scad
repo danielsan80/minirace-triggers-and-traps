@@ -4,7 +4,7 @@ use <../../src/slides/slides.scad>
 use <../../src/keeps/keeps.scad>
 
 
-module trigger_board_box() {
+module trigger_board_cage() {
     
     difference() {
         union() {
