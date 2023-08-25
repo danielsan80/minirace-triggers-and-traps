@@ -3,58 +3,58 @@ use <../../src/wall/wall.scad>
 
 
 
-module box_bottom() {
+module cage_bottom() {
     cube([inner_w+thick*2,inner_l+thick*2, thick]);
 }
 
-module box_front() {
+module cage_front() {
     wall(w=inner_w+thick*2,h=inner_h+thick*2, thick=thick, n_big_uprights = 2, n_little_uprights=2);
 }
 
-//box_front();
+//cage_front();
 
-module box_back() {
+module cage_back() {
     translate([0,inner_l+thick*2,0])
     mirror([0,1,0])
-    box_front();
+    cage_front();
     
 }
 
-module box_right_and_left() {
+module cage_right_and_left() {
     wall(w=inner_l+thick*2,h=inner_h+thick*2, thick=thick, n_big_uprights = 2, n_little_uprights=2);
 }
 
-module box_right() {
+module cage_right() {
     translate([outer_w,0,0])
     rotate([0,0,90])
-    box_right_and_left();
+    cage_right_and_left();
 }
 
-module box_left() {
+module cage_left() {
     translate([0,outer_l,0])
     rotate([0,0,-90])
-    box_right_and_left();
+    cage_right_and_left();
 }
 
 
-module box_top() {
+module cage_top() {
     
     translate([0,0,outer_h-thick])
     cube([outer_w, outer_l, m_thick]);
 }
 
 
-module all_sides() {
+module cage_all_sides() {
     
-    box_bottom();
+    cage_bottom();
     
-    box_front();
+    cage_front();
     
-    box_back();
+    cage_back();
     
-    box_right();
+    cage_right();
     
-    box_left();
+    cage_left();
     
-    box_top();
+    cage_top();
 }

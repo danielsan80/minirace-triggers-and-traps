@@ -1,5 +1,5 @@
 include <../../config/parameters.scad>
-use <../../src/trigger-board/trigger-board.scad>
+use <../../src/trigger_board/trigger_board.scad>
 
 module keeps() {
     translate([thick,thick+trigger_board_y_offset(),thick])

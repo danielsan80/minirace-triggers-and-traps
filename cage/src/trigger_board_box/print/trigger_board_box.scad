@@ -1,4 +1,4 @@
-use <../../../src/trigger-board-box/trigger-board-box.scad>
+use <../../../src/trigger_board_box/trigger_board_box.scad>
 use <../../../src/slides/slides.scad>
 
 

@@ -1,6 +1,6 @@
-include <../../vendor/trigger-board/config/parameters.scad>
-use <../../vendor/trigger-board/src/board/board.scad>
-use <../../vendor/trigger-board/src/hangs/hangs.scad>
+include <../../vendor/trigger_board/config/parameters.scad>
+use <../../vendor/trigger_board/src/board/board.scad>
+use <../../vendor/trigger_board/src/hangs/hangs.scad>
 
 module trigger_board_hangs() {
     hangs();

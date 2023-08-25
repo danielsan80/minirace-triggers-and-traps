@@ -24,10 +24,10 @@ module frame2(void=false) {
     function f() = (void) ? fix : 0;
     
     x_offset = 6;
-    z_offset = 3;
+    z_offset = 2;
     
     w=25;
-    h=9;
+    h=10;
     
     
     translate([-f(), thick+x_offset-m_thick+m(), thick+z_offset-m_thick+m()])

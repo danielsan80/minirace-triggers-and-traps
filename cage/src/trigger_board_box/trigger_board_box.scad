@@ -1,4 +1,4 @@
-use <../../src/box/box.scad>
+use <../../src/cage/cage.scad>
 use <../../src/frames/frames.scad>
 use <../../src/slides/slides.scad>
 use <../../src/keeps/keeps.scad>
@@ -8,7 +8,7 @@ module trigger_board_box() {
     
     difference() {
         union() {
-            all_sides();
+            cage_all_sides();
             slide_left_fix();
             
             frame1();

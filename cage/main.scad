@@ -1,13 +1,13 @@
 include <config/parameters.scad>
 use <src/blade/blade.scad>
 use <src/wall/wall.scad>
-use <src/box/box.scad>
-use <src/trigger-board/trigger-board.scad>
+use <src/cage/cage.scad>
+use <src/trigger_board/trigger_board.scad>
 use <src/frames/frames.scad>
 use <src/slides/slides.scad>
 use <src/keeps/keeps.scad>
-use <src/trigger-board-box/trigger-board-box.scad>
-use <src/trigger-board-box/print/trigger-board-box.scad>
+use <src/trigger_board_box/trigger_board_box.scad>
+use <src/trigger_board_box/print/trigger_board_box.scad>
 
 //blade(w=15, thick=3, l_thick=1);
 //wall(w=50, h=50, thick=3, l_thick=1, n_big_uprights = 2, n_little_uprights=3, n_blades=15);
@@ -15,7 +15,7 @@ use <src/trigger-board-box/print/trigger-board-box.scad>
 //box_back();
 //box_left();
 //box_right();
-//box_bottom();
+//cage_bottom();
 //box_top();
 //all_sides();
 
