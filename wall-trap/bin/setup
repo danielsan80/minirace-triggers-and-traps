@@ -1,4 +1,6 @@
 #!/bin/bash
 
-unlink vendor 2> /dev/null
-ln -sfr ../ vendor
+mkdir vendor 2> /dev/null
+
+unlink vendor/car 2> /dev/null
+ln -sfr ../car vendor/car

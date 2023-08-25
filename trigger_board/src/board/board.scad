@@ -1,5 +1,5 @@
 include <../../config/parameters.scad>
-
+use <../../lib/base_cage/values.scad>
 
 module base() {
     color("violet")
@@ -112,3 +112,9 @@ module board() {
     }
 }
 
+module board_translate() {
+    translate([thick(),thick()+board_y_offset,thick()])
+    translate([board_w,board_l,0])
+    rotate([0,0,180])
+    children();
+}

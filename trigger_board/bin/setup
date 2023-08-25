@@ -1,0 +1,6 @@
+#!/bin/bash
+
+mkdir vendor 2> /dev/null
+
+unlink vendor/cage 2> /dev/null
+ln -sfr ../cage vendor/cage

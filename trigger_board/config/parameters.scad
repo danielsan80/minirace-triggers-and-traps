@@ -12,3 +12,6 @@ board_w = 27;
 board_l = 27;
 board_thick = 1.5;
 board_y_offset = 6;
+
+
+frame_thick = 2;
