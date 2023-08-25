@@ -8,7 +8,7 @@ module trigger_board_cage() {
     
     difference() {
         union() {
-            cage_all_sides();
+            cage_whole();
             slide_left_fix();
             
             frame1();

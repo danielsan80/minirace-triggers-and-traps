@@ -44,7 +44,7 @@ module cage_top() {
 }
 
 
-module cage_all_sides() {
+module cage_whole() {
     
     cage_bottom();
     

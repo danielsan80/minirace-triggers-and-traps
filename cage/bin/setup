@@ -1,4 +1,6 @@
 #!/bin/bash
 
-unlink vendor 2> /dev/null
-ln -sfr ../ vendor
+mkdir vendor 2> /dev/null
+
+unlink vendor/trigger_board 2> /dev/null
+ln -sfr ../trigger_board vendor/trigger_board
