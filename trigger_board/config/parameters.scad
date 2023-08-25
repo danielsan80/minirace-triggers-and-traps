@@ -15,3 +15,13 @@ board_y_offset = 6;
 
 
 frame_thick = 2;
+
+frame1_x_offset = 6;
+frame1_z_offset = 2;
+frame1_w=20;
+frame1_h=9;
+
+frame2_x_offset = 6;
+frame2_z_offset = 2;
+frame2_w=25;
+frame2_h=10;

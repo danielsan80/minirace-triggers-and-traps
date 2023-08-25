@@ -2,35 +2,33 @@ include <../../config/parameters.scad>
 
 module slide_left_cut(void=true) {
     function p() = void?0:0.4;
-    function pr() = void?0.4:0;
-    
-    
-    x_offset = 6;
-    z_offset = 3;
-    
-    w=25;
-    h=9;
+//    function pr() = void?0.4:0;
+//
+//
+//    x_offset = 6;
+//    z_offset = 3;
+//
+//    w=25;
+//    h=9;
     
     color("red")
     translate([0,thick,thick])
-    union() {
-        difference() {
+    difference() {
+        
+        hull() {
             
-            hull() {
-                
-                translate([-fix,fix+p(),fix+p()])
-                cube([thick+fix*2, inner_l-fix*2-p()*2,  inner_h+thick+fix-fix-p()]);
-                
-                translate([(thick-fix)/2, -thick/2+p(), fix+p()])
-                cube([fix, fix, inner_h+thick+fix-fix-p()]);
-                
-                translate([(thick-fix)/2, inner_l-fix+thick/2-fix-p(), fix+p()])
-                cube([fix, fix, inner_h+thick+fix-fix-p()]);
-            }
+            translate([-fix,fix+p(),fix+p()])
+            cube([thick+fix*2, inner_l-fix*2-p()*2,  inner_h+thick+fix-fix-p()]);
             
-            translate([-fix*2, x_offset+fix+pr(),0])
-            cube([thick+fix*4,w-fix*2-pr()*2,h+z_offset-fix]);
+            translate([(thick-fix)/2, -thick/2+p(), fix+p()])
+            cube([fix, fix, inner_h+thick+fix-fix-p()]);
+            
+            translate([(thick-fix)/2, inner_l-fix+thick/2-fix-p(), fix+p()])
+            cube([fix, fix, inner_h+thick+fix-fix-p()]);
         }
+        
+//        translate([-fix*2, x_offset+fix+pr(),0])
+//        cube([thick+fix*4,w-fix*2-pr()*2,h+z_offset-fix]);
     }
 }
 
